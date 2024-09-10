@@ -1,0 +1,40 @@
+ 
+.footer{
+    background-color: rgb(240 243 242 );
+    padding: 80px 0 !important;
+    margin-top: 80px !important;
+}
+.footer h1{
+    font-family: Outfit, sans-serif;
+    color: #0c4368;
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+.footer .par-head{
+    color: rgb(107 114 128);
+    margin-top: .5rem !important;
+    margin-bottom: .5rem !important;
+}
+.footer input{
+    width: 100%;
+    padding: 4px 10px;
+}
+.footer input:focus{
+    outline: none;
+    border: none;
+}
+.footer button{
+    width: 100%;
+    background-color: rgb(0 153 204 );
+    border: none;
+    padding: 5px 15px;
+    color: #fff;
+    font-size: 18px ;
+    font-weight: 400;
+    border-radius: 7px;
+}
+.pay{
+    color: #0c4368;
+    font-size: 18px;
+}

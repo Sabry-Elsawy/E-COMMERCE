@@ -1,0 +1,110 @@
+.active {
+    color: #09c !important;
+    font-weight: 900;
+}
+.font-bold {
+    font-weight: 700;
+}
+
+.text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+.navbar-brand i{
+    color: #09c !important;
+}
+.navbar{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: rgb(240 243 242) !important;
+    z-index: 2000;
+    
+}
+.fa-facebook{
+   color: rgb(8 102 255);
+   cursor: pointer;
+}
+.fa-instagram{
+   color: rgb(255 17 91);
+   cursor: pointer;
+}
+.fa-x-twitter{
+   color: #0c4368;
+   cursor: pointer;
+}
+.fa-linkedin{
+   color: rgb(10 102 194);
+   cursor: pointer;
+}
+.fa-heart , .fa-cart-shopping {
+    font-size: 23px;
+    color:#0c4368 ;
+}
+.badge{
+    color: #fff;
+    background-color: #09c;
+    position: absolute;
+    top: -6px;
+    left: -2px;
+    font-size: 0.69em ;
+    border-radius: 50%;
+}
+
+ 
+ .dropdown-menu{
+    width: 270px !important;
+    left: -200px !important;
+    border-radius: 15px;
+  }
+ 
+  .dropdown-menu li{
+    background-color: transparent !important;
+  }
+
+ a img{
+    width: 35px ;
+ 
+ }
+ .profile{
+    width: 50px !important;
+    padding-right: 10px;
+ }
+ .profile-caption h6 , .profile-caption p{
+    margin: 0 !important;
+ 
+ }
+ .profile-caption h6{
+    font-size: .875rem;
+    line-height: 1.25rem;
+    color: #0c4368;
+ }
+ .profile-caption p{
+    color: rgb(148 163 184);
+    font-weight: 400;
+ }
+ a{
+    background-color: transparent;
+ }
+
+ .link-profile{
+    font-weight: bold;
+    color: #0c4368;
+ }
+ .link-profile i{
+    padding-right: 5px;
+ }
+
+ .link-profile .fa-right-from-bracket{
+    transform: rotate(180deg)  translateX(5px) ;
+    color: rgb(239 68 68) !important;
+ }
+ .border-img{
+   border: 2px solid #09c;
+   border-radius: 50%;
+ }
+
+ .dropdown-menu{
+        --bs-dropdown-link-active-bg: #fff !important;
+ }

@@ -1,0 +1,43 @@
+
+ <app-main-slider></app-main-slider>
+<app-slider-categories></app-slider-categories>
+
+
+<div class="container   my-5">
+ <div class="product-heading">
+  <h1>Shope now by popular products</h1>
+   <div class="hr mx-auto mb-5"></div>
+ </div>
+     <div class="row gy-4">
+        
+        <div *ngFor="let product of products" class="col-lg-3 col-md-4 col-sm-6">
+        
+            <div  class="card p-2">
+                 <div class="action-icon">
+                  <img [src]="product.imageCover" class="w-100" alt="">
+                  <div class="icon-img d-flex">
+                    <i (click)="addToWishList(product._id)" class="fa-regular fa-heart"></i>
+                    <i (click)="addToCart(product._id)" class="fa-solid fa-cart-shopping"></i>
+                    <i [routerLink]="['/productdetails' , product._id]" class="fa-regular fa-eye"></i>
+                  </div>
+                 </div>
+                <p [routerLink]="['/productdetails' , product._id]" class="title">{{product.title.split(' ').slice(0,2).join(' ')}}</p>
+                <h6>{{product.category.name}}</h6>
+                <h5>DeFacto | <span>Available</span></h5>
+               <div class="d-flex justify-content-between">
+                <p class="price">EGP {{product.price}}</p>
+                <div class="icon">
+                    <p class="mb-0">
+                        <i *ngFor="let star of [1, 2, 3, 4, 5]" class="fas fa-star"
+                          [ngClass]="{'rating-color': product.ratingsAverage >= star}"></i>
+                        <span class="rate">{{product.ratingsAverage}}</span>
+                      </p>
+                </div>
+               </div>
+
+            </div>
+  
+        </div>
+    
+     </div>
+</div>

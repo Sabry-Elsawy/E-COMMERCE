@@ -1,0 +1,60 @@
+<!-- <div class="container d-flex justify-content-center  py-5 mt-5">
+    <div class="content">
+        <h1>Create New password</h1>
+        <p>This password should be different from the
+            previous password.</p>
+        <form  (ngSubmit)="saveNewPass(email,   password)"  >
+            
+            <input name="password"  [(ngModel)]="password" type="password" placeholder="New Password" class="form-control mb-3">
+
+            <div *ngIf="CreateNewPassword.get('password')?.errors &&  CreateNewPassword.get('password')?.touched" >
+              <p *ngIf="CreateNewPassword.get('password')?.getError('pattern') " class="m-0">*Password must start with uppercase then from 5 to 10</p>
+              <p *ngIf="CreateNewPassword.get('password')?.getError('required')" class="m-0">*Password is required</p>
+             </div>
+
+            <input    type="password" placeholder="Confirm Password" class="form-control">
+
+            <div *ngIf="CreateNewPassword.get('rePassword')?.errors &&  CreateNewPassword.get('rePassword')?.touched" >
+              <p *ngIf="CreateNewPassword.get('rePassword')?.getError('pattern') " class="m-0">*Confirm  Password must start with uppercase then from 5 to 10</p>
+              <p *ngIf="CreateNewPassword.get('rePassword')?.getError('required')" class="m-0">*Confirm  Password is required</p>
+              <p *ngIf="CreateNewPassword.get('rePassword')?.getError('passwordMatch')" class="m-0">Repassword doesn<sup>,</sup>t match</p>
+             </div>
+          
+
+
+            <button type="submit">Reset Password</button>
+        </form>
+      <div class="text-center">
+        <a routerLink="/login">Back to log in</a>
+      </div>
+    </div>
+ </div> -->
+
+
+
+
+
+
+
+<!-- =================================================================== -->
+
+
+
+
+<section class="new-pass w-25 mx-auto text-center py-5">
+  <div class="head">
+      <h3 class="font-lg font-bold main-color">Create New password</h3>
+      <p class="font-sm opacity-75">This password should be different from the<br> previous password.</p>
+  </div>
+  <div class="inp-new-pass mt-4">
+      <form (ngSubmit)="saveNewPass( )" [formGroup]="resetPassword">
+          <input  formControlName="newPassword"  type="password" name="password" class="form-control w-50 mx-auto my-1" placeholder="New Password">
+          <input    type="password" name="password" class="form-control w-50 mx-auto my-1" placeholder="Confirm Password">
+
+          <button type="submit" class="save-btn w-50 my-2">Reset Password</button>
+      </form>
+      <a [routerLink]="['/login']" class="font-sm font-simibold main-color">Back to login</a>
+  </div>
+</section>
+
+

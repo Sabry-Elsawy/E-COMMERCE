@@ -1,0 +1,33 @@
+.heading h6{
+    color: #09c;
+    font-size: 18px;
+    font-weight: 600;
+}
+.card{
+    padding: 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border: none;
+ 
+}
+.card img{
+    transition: all 0.5s;
+}
+.title{
+    color: #0c4368;
+    font-weight: 600;
+
+}
+
+.card:hover img{
+    transform: scale(1.1);
+     
+}
+a{
+    text-decoration: none;
+}
+
+@media (max-width:575px) {
+    .card img{
+        height: 300px;
+    }
+}

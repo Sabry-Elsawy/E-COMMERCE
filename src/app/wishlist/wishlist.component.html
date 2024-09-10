@@ -1,0 +1,49 @@
+ <div class="container py-5 my-5">
+    <div class="fav">
+        <div class="fav-heading d-flex align-items-center pb-3">
+            <i (click)="goBack()" class="fa-solid fa-arrow-left  "></i>
+            <h1>Favorite Products</h1>
+            <i class="fa-solid fa-heart mx-2"></i>
+        </div>
+        <div *ngFor="let product of wishList" class="row  mb-2 align-items-center">
+            <div class="col-md-8 d-flex   align-items-center">
+                <img [src]="product.imageCover" class="w-25" alt="">
+            
+                <div class="content  ">
+                    <div class="caption">
+                        <h3>{{product.title}}</h3>
+                        <p>Rate : <i *ngFor="let star of [1, 2, 3, 4, 5]" class="fas fa-star"
+                            [ngClass]="{'rating-color': product.ratingsAverage >= star}"></i>
+                          <span class="rate mx-1">{{product.ratingsAverage}}</span></p>
+                        <p>Price : <span>EGP {{product.price}}</span></p>
+                        <p class="defacto">{{product.category?.name}} | DeFacto |  <span>Available</span></p>
+                    </div>
+               
+            </div>
+          
+        </div>
+        <div class="col-md-4 text-center">
+            <div class="btn-action">
+                
+                <button (click)="addToCart(product?._id)" class="m-4 btn1">
+                    <i class="fa-solid fa-cart-plus mx-2"></i>
+                    ADD TO CART
+                </button>
+                <button (click)="removeItem(product?._id)" class="btn2">
+                    <i   class="fa-solid fa-trash-can m-2"></i>
+                    Remove
+                </button>
+            </div>
+      
+          </div>
+    </div>
+    <div *ngIf="wishList.length>0" class="text-center remove">
+        <button  (click)="removeAllFav()"  class="py-2 px-4"><i class="fa-solid fa-trash-can mx-2 "></i>Remove All</button>
+    </div>
+
+    <div *ngIf="wishList.length==0" class="no-product text-center py-5">
+        <p>There are not products yet.</p>
+        <button routerLink="/products">Add Your First Product To Favorite</button>
+    </div>
+
+ </div>

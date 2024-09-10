@@ -1,0 +1,59 @@
+ <div class="check py-5 my-3">
+    <div class="heading text-center position-relative">
+        <span></span>
+        <h1 >Check Out</h1>
+        <span></span>
+    </div>
+
+    <div class="mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-5 content-form p-4">
+                <h4>Cart totals</h4>
+                <h5 class="p-2">SubTotal :   <span>  EGP {{dataFromParent?.totalCartPrice |number}}</span></h5>
+
+
+
+
+                <form   [formGroup]="shippingAddress" class="py-3"  >
+       
+          
+         
+                    <input formControlName="city" type="text" class="form-control mb-3 " id="name" placeholder="Enter Your City Name" >
+                    <div *ngIf="shippingAddress.get('city')?.errors &&  shippingAddress.get('city')?.touched"  >
+                        <p *ngIf="shippingAddress.get('city')?.getError('required')" class="m-0">*phone is required</p>
+                       </div>
+                  
+                  
+                   
+                    <input formControlName="phone" type="email" class="form-control mb-3" id="email" placeholder="Enter Your Phone">
+                    <div *ngIf="shippingAddress.get('phone')?.errors &&  shippingAddress.get('phone')?.touched"  >
+                        <p *ngIf="shippingAddress.get('phone')?.getError('required')" class="m-0">*phone is required</p>
+                        <p *ngIf="shippingAddress.get('phone')?.getError('pattern')" class="m-0">*phone is invalid</p>
+                       </div>
+                    
+                  
+                 <textarea formControlName="details"  placeholder="Details" class="form-control mb-3 pb-5"></textarea>
+                  
+                    <div *ngIf="shippingAddress.get('details')?.errors &&  shippingAddress.get('details')?.touched"  >
+                      <p *ngIf="shippingAddress.get('details')?.getError('required')" class="m-0">*details is required</p>
+                     </div>
+                  
+                  
+                  <div class="row">
+                    <div class="col-md-6">
+                        <button (click)="cashOrder(shippingAddress )" class="btn1" type="submit"><img src="../../assets/images/cash1-DfoK3QaK.png"   alt=""> Cash Order</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button (click)="handelCheckOut(shippingAddress)" class="btn2" type="submit"><img src="../../assets/images/online1-CDuK_NPr.png"   alt=""> Online Order</button>
+                    </div>
+                  </div>
+                  
+                    
+                  
+                  </form>
+
+
+            </div>
+        </div>
+    </div>
+ </div>

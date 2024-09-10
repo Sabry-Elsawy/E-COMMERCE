@@ -1,0 +1,21 @@
+<div class="container d-flex justify-content-center  py-5 mt-5">
+    <div class="content">
+        <i class="fa-regular fa-envelope"></i>
+        <h1>Check your email</h1>
+        <p>Reset code sent to your email</p>
+        <form (ngSubmit)="handleRestcode(RestCode)" [formGroup]="RestCode">
+           
+            <input  formControlName="resetCode" type="text" placeholder="Enter Reset Code" class="form-control">
+            <div *ngIf="RestCode.get('resetCode')?.errors &&  RestCode.get('resetCode')?.touched"   >
+              <p *ngIf="RestCode.get('resetCode')?.getError('required')" class="m-0">*Code is required</p>
+             </div>
+            <button type="submit"> 
+              <span *ngIf="!isloading">Next</span>
+              <i *ngIf="isloading"  class="fas fa-spinner fa-spin"></i>
+            </button>
+        </form>
+      <div class="text-center">
+        <a routerLink="/forgotpass-email">Back Forgot your password</a>
+      </div>
+    </div>
+ </div>

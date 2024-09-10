@@ -1,0 +1,22 @@
+<div class="container py-5 my-4">
+    <div class="heading mt-5 text-center">
+        <hr>
+        <h6>Shop by category</h6>
+        <hr>
+    </div>
+    <div class="row g-5 p-5">
+        <div *ngFor="let catgory of Categories" class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+           <a [routerLink]="['/specific-SubCategory' , catgory._id]">
+            <div class="card">
+                <img height="150" [src]="catgory.image" alt="{{catgory.name}}">
+                
+            </div>
+            <h6 class="pt-3 title text-center">{{catgory.name}}</h6>
+           </a>
+        </div>
+
+        
+
+
+    </div>
+</div>

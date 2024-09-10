@@ -1,0 +1,77 @@
+ 
+
+
+
+ <div class="container py-5 my-5">
+    <div class="fav">
+
+     <div class="row  align-items-center justify-content-between">
+        <div class="col-md-3">
+            <div class="fav-heading d-flex align-items-center pb-3">
+                <i (click)="goBack()" class="fa-solid fa-arrow-left  "></i>
+                <h1>Shop Cart
+                  
+                </h1>
+                <i class="fa-brands fa-opencart mx-2"></i>
+            </div>
+           
+        </div>
+        <div *ngIf="cartProducts?.products?.length>0" class="col-md-3 total text-center">
+            <h6>Total Price : <span>EGP {{cartProducts?.totalCartPrice | number}} </span></h6>
+            <button>Check Out</button>
+        </div>
+     </div>
+
+        <div *ngFor="let product   of cartProducts?.products"  class="row   mb-2 align-items-center">
+            <div class="col-md-6 d-flex   align-items-center">
+                <img [src]="product?.product?.imageCover " class="w-25" alt="">
+            
+                <div class="content  ">
+                    <div class="caption">
+                        <h3>{{product.product.title}}</h3>
+                        <p>Rate : <i *ngFor="let star of [1, 2, 3, 4, 5]" class="fas fa-star"
+                            [ngClass]="{'rating-color': product.product.ratingsAverage >= star}"></i>
+                          <span class="rate mx-1">{{product.product.ratingsAverage}}</span></p>
+                        <p>Price : <span>EGP {{product.price}}</span></p>
+                        <p class="defacto">{{product.product.category.name}} | DeFacto |  <span>Available</span></p>
+                    </div>
+               
+            </div>
+          
+        </div>
+       
+                <div class="col-md-3    text-center d-flex align-items-center justify-content-center">
+                    <div  class="plus" >
+                        <button (click)="updateProductQuantity(product.product._id ,product.count +1)" class="btn1">+</button>
+                        <span>{{product.count}}</span>
+                        <button (click)="updateProductQuantity(product.product._id ,product.count -1)" class="btn1">-</button>
+                       </div>
+                     
+             
+      
+          </div>
+          <div  class="col-md-3 text-center d-flex justify-content-around gy-2 align-items-center pe-5">
+            <p class="total">Total Price  <br> <span>EGP {{product.count * product.price |number}} </span></p>
+            <i  (click)="removeItem(product.product._id)"  class="fa-solid fa-xmark"></i>
+           </div>
+
+           
+    </div>
+
+
+    <div *ngIf="cartProducts?.products?.length>0" class="clear-btn">
+        <button (click)="RemoveAllCartItems()" ><i class="fa-solid fa-trash-can mx-2"></i> Clear All Products</button>
+    </div>
+
+
+<div *ngIf="cartProducts?.products?.length==0"  class="no-items py-5 text-center">
+    <p>There are not items yet.</p>
+    <button routerLink="/products">  Add your first product to cart</button>
+</div>
+
+
+
+
+
+    <app-check-out *ngIf="cartProducts?.products?.length>0" [dataFromParent]="cartProducts"></app-check-out>
+ </div>

@@ -1,0 +1,118 @@
+<section class="py-5 my-5">
+ <div class="container">
+    <div class="heading d-flex align-items-center">
+        <i (click)="goBack()" class="fa-solid fa-arrow-left me-3"></i>
+        <h1>Track your orders<i class="fa-solid fa-truck-fast  ms-2"></i></h1>
+    </div>
+
+
+    <div class="single-order" *ngFor="let order of userAllOrders ; let i = index">
+        <div class="head d-flex justify-content-between">
+            <div class="row w-100 justify-content-between  ">
+                <div class="col-md-3">
+                    <p>Transaction Number : #{{order.id}}   </p>
+                </div>
+                <div class="col-md-3">
+                    <p>Placed on : {{order.createdAt | date}}  </p>
+                </div>
+                <div class="col-md-3">
+                    <p>  Payment  :  {{order.paymentMethodType}} </p>
+                </div>
+             
+            </div>
+             <div class="btnh ">
+                <button routerLink="/products" class="w-auto">Add New Items</button>
+             </div>
+        </div>
+
+
+
+
+        <div class="order-content">
+            <div class="row">
+                <div class="col-lg-9">
+
+
+
+                    <div class="row gy-4">
+                        <div class="col-md-6 col-xlg-4"  *ngFor="let info of order.cartItems; let i = index">
+                            <div class="d-flex  col-content ">
+                                <img [src]="info.product.imageCover"   alt="">
+                                <div class="product-caption">
+                                    <h5> {{info.product.title.split(' ').slice(0,3).join(' ') }} </h5>
+                                    <p>price : <span>EGP  {{info.price}}</span></p>
+                                    <p>Quantity  : <span> {{info.count}}</span></p>
+                                    <p class="product-name"> {{info.product.category.name}}  <br> {{info.product.brand.name}}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    
+
+                    </div>
+
+
+
+
+                </div>
+                <div class="col-lg-3">
+                    <div class="d-flex justify-content-center align-items-center">
+                
+                        <div class="status-order ">
+                            <div class="ordered border-success-order">
+                                <div class="order-badge bg-success-order">
+                                    <p class="ms-5">Ordered</p>
+                                </div>
+                            </div>
+                            <div class="confirmed border-success-order">
+                                <div class="order-badge bg-success-order">
+                                    <p class="ms-5">Confirmed</p>
+                                </div>
+                            </div>
+                            <div class="out-of-delivery {{order.isDelivered?'border-success':'border-fail'}} ">
+                                <div class="order-badge {{order.isDelivered?'bg-success':'bg-fail'}}">
+                                    <p class="ms-5">Out for delivery</p>
+                                </div>
+                            </div>
+                            <div class="delivered  {{order.isDelivered?'border-success':'border-fail'}}">
+                                <div class="order-badge  {{order.isDelivered?'bg-success':'bg-fail'}}">
+                                    <p class="ms-5">Delivered</p>
+                                </div>
+                            </div>
+                            <div class="paid  {{order.isPaid?'border-success':'border-fail'}}">
+                                <div class="order-badge  {{order.isPaid?'bg-success':'bg-fail'}}">
+                                    <p class="ms-5">Paid</p>
+                                </div>
+                            </div>
+                        </div>
+                
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="total-price">
+            <p>Products Quantity : <span>{{order.cartItems.length}}</span></p>
+            <p>Shipping Price : <span><sup>EGP</sup>{{order.shippingPrice}}</span></p>
+            <p>taxes  : <span><sup>EGP</sup>{{order.taxPrice}}</span></p>
+            <h4>Total Order Price : <span>EGP {{order.totalOrderPrice}} </span></h4>
+        </div>
+
+
+    </div>
+
+
+
+ </div>
+
+
+
+
+ <div *ngIf="userAllOrders.length == 0" class="no-order text-center py-5">
+    <p>There are not orders yet.</p>
+    <button routerLink="/products">Add Your First Order</button>
+ </div>
+</section>

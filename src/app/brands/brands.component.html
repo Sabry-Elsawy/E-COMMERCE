@@ -1,0 +1,32 @@
+<div class="container py-5 my-4">
+    <div class="heading text-center">
+        <hr>
+        <h6>Shop by category</h6>
+        <hr>
+    </div>
+    <div class="row   g-4 p-5">
+        <div *ngFor="let brand of (isExpanded ? allBrands : allBrands | slice:0:20)" class="col-lg-2 col-md-3 col-sm-4 d-flex justify-content-center ">
+           <a [routerLink]="['/specific-brand' , brand._id]">
+          
+                <img    [src]="brand.image" alt="{{brand.name}}">
+        
+            
+           </a>
+        </div>
+
+        
+
+
+    </div>
+
+    <div class="text-center btn-show mt-3">
+        <button (click)="toggleBrands()">
+          {{ isExpanded ? 'Show less  ' : ' Show More  ' }}
+        </button>
+      </div>
+</div>
+
+
+
+ 
+ 

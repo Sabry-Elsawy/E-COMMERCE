@@ -1,0 +1,21 @@
+ <div class="container d-flex justify-content-center  py-5 mt-5">
+    <div class="content">
+        <h1>Forgot your password?</h1>
+        <p>Your password will be reset by email.</p>
+        <form (ngSubmit)="handleForgotPassEmail( )"  [formGroup]="forgotpasswordEmail">
+            <label class="mb-2" for="email">Enter your email address</label>
+            <input formControlName="email"  type="email" id="email" class="form-control">
+            <div *ngIf="forgotpasswordEmail.get('email')?.errors &&  forgotpasswordEmail.get('email')?.touched"   >
+              <p *ngIf="forgotpasswordEmail.get('email')?.getError('email') " class="m-0">*Email inValid</p>
+              <p *ngIf="forgotpasswordEmail.get('email')?.getError('required')" class="m-0">*Email is required</p>
+             </div>
+            <button type="submit">
+              <span *ngIf="!isloading">Next</span>
+              <i *ngIf="isloading" class="fas fa-spinner fa-spin"></i>
+            </button>
+        </form>
+      <div class="text-center">
+        <a routerLink="/login">Back to log in</a>
+      </div>
+    </div>
+ </div>

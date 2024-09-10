@@ -1,0 +1,51 @@
+ <div class="container px-3 mt-5 py-5">
+    <div class="row pt-5 gy-5 justify-content-center">
+        <div class="col-md-4  text-center ">
+            <img src="../../assets/images/user-Csi4vjZh (1).png" class="w-50 d-block mx-auto" alt="profile">
+            <button class="upload-btn">Upload Photo</button>
+        </div>
+
+        <div class="col-md-5    ">
+            <div class="card p-4  ">
+                <h2>Personal Details</h2>
+
+
+                <form (ngSubmit)="handelProfileData(updateProfileData)" [formGroup]="updateProfileData">
+                    <label for="name">Name</label>
+                    <input type="text" disabled id="name" [value]="profileData?.name" class="form-control disabled my-2">
+                    <input formControlName="name" type="text" id="name" class="form-control my-2 mb-3" placeholder="Enter your new name">
+                    <div *ngIf="updateProfileData.get('name')?.errors &&  updateProfileData.get('name')?.touched"  >
+                        <p *ngIf="updateProfileData.get('name')?.getError('minlength') " class="m-0">*Name minlength is 3</p>
+                        <p *ngIf="updateProfileData.get('name')?.getError('maxlength')" class="m-0">*Name maxlength is 10</p>
+                        <p *ngIf="updateProfileData.get('name')?.getError('required')" class="m-0">*Name is required</p>
+                       </div>
+                     
+
+
+                    <label for="email">Email</label>
+                    <input type="email" disabled id="email"  [value]="profileData?.email"  class="form-control disabled my-2 ">
+                    <input formControlName="email" type="email" id="email" class="form-control my-2 mb-3" placeholder="Enter your new email">
+                    <div *ngIf="updateProfileData.get('email')?.errors &&  updateProfileData.get('email')?.touched"   >
+                        <p *ngIf="updateProfileData.get('email')?.getError('email') " class="m-0">*Email inValid</p>
+                        <p *ngIf="updateProfileData.get('name')?.getError('required')" class="m-0">*Email is required</p>
+                       </div>
+
+                    <label for="phone">Phone</label>
+                    <input type="tel" disabled id="phone"  [value]="profileData?.phone" class="form-control disabled my-2">
+                    <input formControlName="phone" type="tel" id="phone" class="form-control my-2 mb-3" placeholder="Enter your new phone">
+                    <div *ngIf="updateProfileData.get('phone')?.errors &&  updateProfileData.get('phone')?.touched"    >
+                        <p *ngIf="updateProfileData.get('phone')?.getError('pattern') " class="m-0">*Enter a valid Egyption phone number </p>
+                        <p *ngIf="updateProfileData.get('phone')?.getError('required')" class="m-0">*phone is required</p>
+                       </div>
+                    
+
+
+
+                    <button class="py-2 px-4 mt-2  rounded" type="submit">Update</button>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+ </div>

@@ -1,0 +1,69 @@
+  
+
+
+ <div class="container py-5 mt-5">
+    <div class="row justify-content-center mt-5">
+        <div class="col-lg-5 col-md-8">
+            <div class="content">
+                <h1>Add Address</h1>
+
+
+                <form   [formGroup]="AddAddress"  (ngSubmit)="handleAddAdress(AddAddress)">
+                    <label for="name" class="mb-2"> Name  </label>
+                    <input *ngIf="Address.length>0" type="text" disabled id="name"  [value]="Address[Address.length -1].name " class="form-control disabled my-2">
+                    <input formControlName="name" type="text" id="name" class="form-control mb-2">
+                    <div *ngIf="AddAddress.get('name')?.errors &&  AddAddress.get('name')?.touched"  >
+                        <p *ngIf="AddAddress.get('name')?.getError('minlength') " class="m-0">*Name minlength is 3</p>
+                        <p *ngIf="AddAddress.get('name')?.getError('maxlength')" class="m-0">*Name maxlength is 10</p>
+                        <p *ngIf="AddAddress.get('name')?.getError('required')" class="m-0">*Name is required</p>
+                       </div>
+                     
+                    
+
+                  
+                  
+
+                    <label for="city" class="mb-2"> City  </label>
+                    <input *ngIf="Address.length>0"  type="text" disabled id="city"  [value]="Address[Address.length -1].city "    class="form-control disabled my-2">
+                    <input formControlName="city"  type="text" id="city" class="form-control mb-2">
+                    <div *ngIf="AddAddress.get('city')?.errors &&  AddAddress.get('city')?.touched"  >
+                        <p *ngIf="AddAddress.get('city')?.getError('minlength') " class="m-0">*city minlength is 3</p>
+                        <p *ngIf="AddAddress.get('city')?.getError('maxlength')" class="m-0">*city maxlength is 10</p>
+                        <p *ngIf="AddAddress.get('city')?.getError('required')" class="m-0">*city is required</p>
+                       </div>
+                   
+                    <label for="phone" class="mb-2"> Phone  </label>
+                    <input *ngIf="Address.length>0"  type="tel" disabled id="phone"  [value]="Address[Address.length -1].phone "    class="form-control disabled my-2">
+                    <input formControlName="phone"  type="tel" id="phone" class="form-control mb-2">
+
+                    <div *ngIf="AddAddress.get('phone')?.errors &&  AddAddress.get('phone')?.touched"    >
+                        <p *ngIf="AddAddress.get('phone')?.getError('pattern') " class="m-0">*Enter a valid Egyption phone number </p>
+                        <p *ngIf="AddAddress.get('phone')?.getError('required')" class="m-0">*phone is required</p>
+                       </div>
+                    
+
+ 
+                    <label for="Details" class="mb-2"> Details  </label>
+                    <input *ngIf="Address.length>0"  type="text" disabled id="Details"  [value]="Address[Address.length -1].details "    class="form-control disabled my-2">
+                    <textarea formControlName="details" name="Details" id="Details" class="form-control disabled my-2 "></textarea>
+                    <div *ngIf="AddAddress.get('details')?.errors &&  AddAddress.get('details')?.touched"  >
+                        <p *ngIf="AddAddress.get('details')?.getError('required')" class="m-0">*details is required</p>
+                       </div>
+                   
+
+
+                 
+                    
+
+
+
+                    <button class="mt-2"  type="submit">Add Address</button>
+
+
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+ </div>

@@ -1,0 +1,61 @@
+<div class="container s pt-4 mt-5  ">
+  <div class="search d-flex justify-content-between align-items-center py-3">
+    <i (click)="goBack()" class="fa-solid fa-arrow-left"></i>
+    <div class="search-input">
+      <input [(ngModel)]="SearhTerm" type="text" placeholder="Search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+     
+<a class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">    <i class="fa-solid fa-sliders"></i></a>
+ 
+  </div>
+</div>
+
+
+ 
+
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Sort</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <p>Price : </p>
+  </div>
+</div>
+
+
+
+
+    <div class="container py-5 my-5">
+      <div class="row gy-4 ">
+        <div *ngFor="let product of products | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage } | search :SearhTerm " class="col-lg-3 col-md-4 col-sm-6">
+          <div class="card p-2">
+            <div class="action-icon">
+              <img [src]="product.imageCover" class="w-100" alt="">
+              <div class="icon-img d-flex">
+                <i (click)="addToWishList(product._id)" class="fa-regular fa-heart"></i>
+                <i (click)="addToCart(product._id)" class="fa-solid fa-cart-shopping"></i>
+                <i [routerLink]="['/productdetails', product._id]" class="fa-regular fa-eye"></i>
+              </div>
+            </div>
+            <p [routerLink]="['/productdetails', product._id]" class="title">{{product.title.split(' ').slice(0, 2).join(' ')}}</p>
+            <h6>{{product.category.name}}</h6>
+            <h5>DeFacto | <span>Available</span></h5>
+            <div class="d-flex justify-content-between">
+              <p class="price">EGP {{product.price}}</p>
+              <div class="icon">
+                <p class="mb-0">
+                  <i *ngFor="let star of [1, 2, 3, 4, 5]" class="fas fa-star" [ngClass]="{'rating-color': product.ratingsAverage >= star}"></i>
+                  <span class="rate">{{product.ratingsAverage}}</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center pt-5">
+        <pagination-controls  (pageChange)="currentPage = $event"></pagination-controls>
+      </div>
+    </div>
+    

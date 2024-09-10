@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+:root
+{
+  --main-color:#09c;
+}
+
+.bg-main
+{
+  background-color: var(--main-color) !important;
+}
+@import 'ngx-toastr/toastr';
+
+// #toast-container{
+//   background-color: tomato !important;
+// }
+.toast-info{
+  background-color:#fff !important ;
+  color: #0c4368 !important;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+}
+.toast-success{
+  background-color: var(--main-color) !important;
+}

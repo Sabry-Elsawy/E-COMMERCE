@@ -1,0 +1,234 @@
+ 
+.heading .fa-arrow-left{
+    color: rgb(255 255 255 );
+    font-weight: 900;
+    background-color: rgb(0 153 204);
+    cursor: pointer;
+    padding: 13px;
+    border-radius: 50%;
+    transition: all 300ms;
+}
+.heading .fa-arrow-left:hover{
+    transform: translateX(-5px) scale(1.05);
+}
+.heading h1{
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: #0c4368;
+}
+.heading h1 .fa-truck-fast {
+    color: rgb(0, 153, 204);
+}
+.heading {
+    margin: 15px 0;
+}
+.head p{
+    font-weight: 600;
+    color: #0c4368;
+    font-size: 18px;
+}
+.head button{
+    background-color: rgb(0 153 204);
+    border: none;
+    color: #fff;
+    padding: 7px 12px;
+    width: 150px !important;
+    border-radius: 8px;
+}
+.head{
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 15px;
+}
+.single-order{
+    border:2px dotted #e5e7eb ;
+    padding: 25px;
+    border-radius: 13px;
+    margin: 30px 0 0 0;
+}
+
+
+.order-content{
+padding-top: 25px;
+}
+
+
+//  status order
+
+.status-order{
+background-color: tomato;
+    position: relative;
+    height: 250px;
+}
+.status-order .order-badge p{
+    margin-bottom: 20px;
+    
+}
+.status-order::before{
+    content: "";
+    width: 1px;
+    height: 200px;
+    background-color: #94a3b886;
+    border-radius: 1px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+}
+.ordered{
+    padding: 4px;
+    border: 1px solid var(--main-color);
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: -13px;
+    z-index: 50;
+    background-color: #fff;
+}
+.confirmed{
+    padding: 4px;
+    border: 1px solid var(--main-color);
+    border-radius: 50%;
+    position: absolute;
+    top: 50px;
+    right: -13px;
+    z-index: 50;
+    background-color: #fff;
+}
+.out-of-delivery{
+    padding: 4px;
+    border: 1px solid;
+    border-radius: 50%;
+    position: absolute;
+    top: 100px;
+    right: -13px;
+    z-index: 50;
+    background-color: #fff;
+}
+.delivered{
+    padding: 4px;
+    border: 1px solid var(--main-color);
+    border-radius: 50%;
+    position: absolute;
+    top: 150px;
+    right: -13px;
+    z-index: 50;
+    background-color: #fff;
+}
+.paid{
+    padding: 4px;
+    border: 1px solid var(--main-color);
+    border-radius: 50%;
+    position: absolute;
+    top: 200px;
+    right: -13px;
+    z-index: 50;
+    background-color: #fff;
+}
+.ordered .order-badge,
+.confirmed .order-badge,
+.out-of-delivery .order-badge,
+.delivered .order-badge,
+.paid .order-badge
+{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    /* background-color: var(--main-color); */
+}
+.ordered .order-badge p,
+.confirmed .order-badge p,
+.out-of-delivery .order-badge p,
+.delivered .order-badge p,
+.paid .order-badge p
+{
+    width: max-content;
+    color: #0c4368;
+}
+
+.border-success{
+    border-color: #22c55e !important;
+}
+.bg-success{
+    background-color: #22c55e !important;
+}
+.border-success-order{
+    border-color: var(--main-color) !important;
+}
+.bg-success-order{
+    background-color: var(--main-color) !important;
+}
+.border-fail{
+    border-color: #f87171 !important;
+}
+.bg-fail{
+    background-color: #f87171 !important;
+}
+
+.btn-add-product-fav {
+    border: none;
+    background-color: var(--main-color);
+    border-radius: 20px;
+    padding: 8px 15px;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.btn-add-product-fav:hover {
+    background-color: #02ade3;
+}
+ 
+.product-caption{
+    color: #0c4368;
+}
+.product-caption h5{
+    transition: 200ms;
+    margin-bottom: 10px;
+    font-size: 19px;
+    font-weight: 600;
+}
+.product-caption h5:hover{
+    color: var(--main-color);
+}
+.product-caption p{
+    margin-bottom: 7px;
+    font-weight: 600;
+
+}
+.product-caption p span{
+    color: var(--main-color);
+}
+.product-caption .product-name{
+    color: rgb(107 114 128) ;
+}
+.col-content img{
+    width: 160px;
+    margin-right: 10px;
+}
+
+.total-price{
+    color: #0c4368;
+    font-weight: 600;
+}
+.total-price p span{
+    color: var(--main-color);
+}
+.total-price h4 span{
+    color: var(--main-color);
+}
+.total-price h4{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+
+.no-order p{
+    color: #0c4368;
+    margin-bottom: 10px;
+}
+.no-order button{
+    color: #fff;
+    background-color: var(--main-color);
+    padding: 10px 30px;
+    border-radius: 8px;
+    border: none;
+}

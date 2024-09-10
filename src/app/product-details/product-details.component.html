@@ -1,0 +1,39 @@
+ <div class="container py-5 my-5">
+    <div class="row   py-4">
+        <div class="col-md-4">
+            <owl-carousel-o [options]="customOptions">
+
+                <ng-container *ngFor="let img of productsDetails?.images">
+                  <ng-template carouselSlide  >
+                    <img  [src]="img" alt="">
+                  </ng-template>
+                </ng-container>
+            
+              </owl-carousel-o>
+             
+        </div>
+        <div class="col-md-8 py-4">
+           <div class="d-flex justify-content-between align-items-center">
+            <h1 class="h4 fw-bolder mb-2">{{productsDetails?.title}}</h1>
+            <i (click)="goBack()" class="fa-solid fa-arrow-left"></i>
+           </div>
+           <p class="caption">{{productsDetails?.category.name}}</p>
+           <p class="defacto">DeFacto | <span>Available</span></p>
+           <p> <i *ngFor="let star of [1, 2, 3, 4, 5]" class="fas fa-star"
+            [ngClass]="{'rating-color': productsDetails?.ratingsAverage >= star}"></i>
+          <span class="rate mx-1">{{productsDetails?.ratingsAverage}}</span></p>
+            <p class="text-muted ">{{productsDetails?.description}}</p>
+            <p class="price">EGP <span>{{productsDetails?.price | number}}</span></p>
+            <div class="my-4 d-flex justify-content-between align-items-center">
+              <span (click)="addToWishList(productsDetails?._id)" class="me-4 btn1 d-flex justify-content-center align-items-center">
+                <i class="fa-regular fa-heart"></i> 
+
+              </span>
+              <button (click)="addToCart(productsDetails?._id)" class="btn2">
+                <i class="fa-solid fa-cart-plus mx-2"></i>
+                ADD TO CART
+              </button>
+            </div>
+        </div>
+     </div>
+ </div>
